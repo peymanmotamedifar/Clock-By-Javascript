@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style4.css">
+    <title>Time</title>
+</head>
+<body>
+
+  <section>
+    
+      <div id="time"></div><br>
+
+      <div id="clock">
+        
+        <div class="num num1"><div>1</div></div>
+        <div class="num num2"><div>2</div></div>
+        <div class="num num3"><div>3</div></div>
+        <div class="num num4"><div>4</div></div>
+        <div class="num num5"><div>5</div></div>
+        <div class="num num6"><div>6</div></div>
+        <div class="num num7"><div>7</div></div>
+        <div class="num num8"><div>8</div></div>
+        <div class="num num9"><div>9</div></div>
+        <div class="num num10"><div>10</div></div>
+        <div class="num num11"><div>11</div></div>
+        <div class="num num12"><div>12</div></div>
+
+        <div id="hr-hand"></div>
+        <div id="min-hand"></div>
+        <div id="sec-hand"></div>
+
+     </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        setInterval(myT, 1000);
+        function myT(){
+            let date = new Date();
+  updateTime(date);
+  updateClock(date);
+        }
+
+function updateClock(date){
+  let secHand = document.getElementById("sec-hand").style;
+ 
+  let minHand = document.getElementById("min-hand").style;
+  let hrHand = document.getElementById("hr-hand").style;
+  
+  secHand.transform = "rotate(" + date.getSeconds() * 6 + "deg)";
+  minHand.transform = "rotate(" + date.getMinutes() * 6 + "deg)";
+  hrHand.transform = "rotate(" + (date.getHours() * 30 + date.getMinutes() * 0.5) + "deg)";
+}
+
+function updateTime(e){
+  let timeDiv = document.getElementById("time");
+  let time =  e.getHours() + " : " + e.getMinutes() + " : " + e.getSeconds();
+  timeDiv.innerHTML = time;
+}
+
+
+
+    </script>
+</body>
+</html>
